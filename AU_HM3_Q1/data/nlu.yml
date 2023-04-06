@@ -1,0 +1,128 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - good afternoon
+    - Hi! I am [Vedika](first_name) [Srivastava](last_name)
+    - Hello, my name is [John](first_name) [Doe](last_name)
+    - Hey! [Tony](first_name) [Stark](last_name) here
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - have a nice day
+    - see you
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: order_student_card
+  examples: |
+    - Hi! Can I get a student card?
+    - I want to order a student card.
+    - How do I get a student card?
+
+- intent: provide_student_id
+  examples: |
+    - My student ID is {student_id}.
+    - Here's my student ID: {student_id}.
+    - [U123456BU](student_id)
+    - [S23176098](student_id)
+    - [U26624361](student_id)
+
+- intent : tell_services
+  examples: |
+    - Can you tell me what services you offer?
+    - services
+    - I'm curious about your services. Can you tell me what they are?
+    - Would it be possible for you to share information about your offered services?
+    - What kinds of services do you offer?
+    - Could you inform me of the services you provide?
+
+- intent : get_student_id
+  examples: |
+    - Can you help me get my student ID?
+    - I want to get my student id
+    - Could you assist me in obtaining my student iD?
+    - I need help getting my student Id, could you help me out?
+    - I am seeking assistance in obtaining my student ID?
+    - I need help acquiring my student ID number. Can you help me?
+    - Would you be able to aid me in retrieving my student ID number?
+    - I'm having trouble getting my student ID number.
+
+- intent: get_name
+  examples: |
+    - My first name is [Tony](first_name) and last name is [Stark](last_name).
+    - My name is [John](first_name) [Doe](last_name).
+    - My name is [Tony](first_name) [Stark](last_name)
+    - [Vedika](first_name) [Srivastava](last_name)
+    - [Tony](first_name) [Stark](last_name) here
+    - [John](first_name) [Doe](last_name) is my name
+    - I am called [Vedika](first_name) [Srivastava](last_name)
+
+
+- intent: report_covid
+  examples: |
+    - I tested [Positive](covid_status) for COVID-19
+    - tested [Postive] for covid
+    - tested [Negative] for covid-19
+    - I got my COVID test result
+    - Report my COVID test result
+    - Update my COVID status?
+    - I want to submit my COVID-19 test results
+    - I got tested for COVID-19 and want to share my results
+    - I need to report my [Negative](covid_status) COVID test result
+    - [U123456BU](student_id) tested [Positive](covid_status) for COVID-19 using a [PCR](covid_test_type) test
+    - My COVID test result is [Negative](covid_status) and I used a [Antigen](covid_test_type) test
+
+- intent: get_covid_status
+  examples: |
+    - [Negative](covid_status)
+    - [Postive](covid_status)
+
+- intent: get_covid_test_type
+  examples: |
+    - [PCR](covid_test_type) test
+    - [Antigen](covid_test_type) test
+    - [Antigen](covid_test_type)
+    - [PCR](covid_test_type)
+
+
+entity: 
+- student_id
+- first_name
+- last_name
+- covid_status
+- covid_test_type
+
+entity_synonyms:
+  student_id:
+  - U123456BU
+  - U26624361
+  - S23176098
+  first_name:
+  - Vedika
+  - John
+  - Tony
+  last_name:
+  - Srivastava
+  - Doe
+  - Stark
+  covid_status:
+  - Positive
+  - Negative
+
+  covid_test_type:
+  - PCR
+  - Antigen

@@ -1,0 +1,120 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  # - affirm
+  # - deny
+  # - mood_great
+  # - mood_unhappy
+  - bot_challenge
+  - order_student_card
+  - provide_student_id
+  - tell_services
+  - get_student_id
+  - get_name
+  - report_covid
+  - get_covid_status
+  - get_covid_test_type
+
+responses:
+  # utter_greet:
+  # - text: "Hey! How are you?"
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot for Acme University, powered by Rasa."
+
+  utter_greet:
+  - text: "Hello! How can I help you today?"
+
+  utter_ask_student_id:
+  - text: "Sure, could you please give me your student ID number?"
+
+  utter_process_student_card:
+  - text: "Your ID {student_id} student card is being processed."
+
+  utter_services:
+  - text: "I'm a chatbot for Acme University and I can assist with ordering a student card, reporting COVID, getting a student ID, and more. Is there anything specific you need help with?"
+
+  utter_get_first_last_name:
+  - text: "Sure, can you tell me your first name and last name?"
+
+  utter_tell_student_id:
+  - text: "Your student ID is U123456BU"
+
+  utter_ask_covid_status:
+  - text: "What was your COVID-19 Test Result? (Positive/Negative)"
+
+  utter_ask_covid_test_type:
+  - text: "What type of test did you take? (PCR/Antigen)"
+
+  utter_checking_details:
+  - text: "Hold tight while we gather information"
+
+  utter_enquire_student_id:
+  - text: "What is your student ID number?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+slots:
+  student_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: student_id
+
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: first_name
+
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: last_name
+
+  covid_status:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: covid_status
+
+  covid_test_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: covid_test_type
+
+
+entities:
+- student_id
+- first_name
+- last_name
+- covid_status
+- covid_test_type
+
+actions:
+- action_get_student_id
+- action_submit_covid_test_results
